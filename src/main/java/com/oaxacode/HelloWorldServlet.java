@@ -1,6 +1,6 @@
 package com.oaxacode;
 
-import java.io.*;
+/*import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -14,5 +14,25 @@ public class HelloWorldServlet extends HttpServlet {
         out.println( "Hello World Oaxacodes from Servlet3!" );
         out.flush();
         out.close();
+    }
+}*/
+
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns =
+{ "/test" })
+public class HelloWorldServlet extends HttpServlet
+{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        request.getRequestDispatcher("/WEB-INF/html/index.html").forward(request,response);
     }
 }
